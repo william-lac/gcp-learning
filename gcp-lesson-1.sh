@@ -27,4 +27,6 @@ gsutil mb gs://$bucket -p $project -c NEARLINE -l US-WEST2
 #  - description: 'Cloud billing quota exceeded: https://support.google.com/code/contact/billing_quota_increase'
 #    subject: billingAccounts/XXXXXX-XXXXXX-XXXXXX
 
+# I'll script it below to how I would create a GCE (Google Cloud Engine)
+
 
