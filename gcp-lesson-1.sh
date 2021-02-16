@@ -28,5 +28,17 @@ gsutil mb gs://$bucket -p $project -c NEARLINE -l US-WEST2
 #    subject: billingAccounts/XXXXXX-XXXXXX-XXXXXX
 
 # I'll script it below to how I would create a GCE (Google Cloud Engine)
+gcloud beta compute --project=challenge-1-304718 instances create challenge-vm-cli --zone=us-central1-f \
+--machine-type=f1-micro --subnet=default --network-tier=PREMIUM \
+--metadata-from-file --metadata=^,@^lab-logs-bucket=gs://challenge-vm-cli-bucket/,@startup-script=script/startup-script.sh \
+--no-restart-on-failure --maintenance-policy=TERMINATE --preemptible \
+--service-account=845007272164-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/cloud-platform \
+--image=debian-10-buster-v20210122 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-balanced \
+--boot-disk-device-name=challenge-vm-cli --no-shielded-secure-boot --shielded-vtpm \
+--shielded-integrity-monitoring --reservation-affinity=any
+
+
+
+
 
 
